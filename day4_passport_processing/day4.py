@@ -43,10 +43,11 @@ def extra_requirements(passport_dict):
 	min_eyr, max_eyr = 2020, 2030
 	min_cm, max_cm = 150, 193
 	min_in, max_in = 59, 76
-	hcl_pattern = r'#([0-9]|[a-f]){6}'
+	hcl_pattern = re.compile('#([0-9]|[a-f]){6}')
 	eye_pattern = ('amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth')
-	passport_pattern = r'\d{9}'
+	passport_pattern = re.compile('\d{9}(?!\S)')
 	default_check = False
+
 
 	for key, value in passport_dict.items():
 		if key == 'byr':
@@ -94,7 +95,6 @@ def extra_requirements(passport_dict):
 				return False
 
 	return default_check
-
 
 
 
