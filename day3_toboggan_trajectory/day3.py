@@ -20,7 +20,6 @@ def trees_cut(filename, down, right):
 				column += right
 				if column > last_index:
 					column = column - len(treemap[0])
-
 			else:
 				row += down
 				column += right
